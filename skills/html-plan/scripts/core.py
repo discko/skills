@@ -13,7 +13,7 @@ import time
 from urllib.parse import urlsplit
 from urllib.request import url2pathname
 
-VERSION = "0.3.0"
+VERSION = "0.3.1"
 HOST_NAME = "com.html_plan.host"
 EXTENSION_ID = "hlheonemgicdhgjghbfepkiddnlbmhml"
 PROTOCOL = "html-plan/v1"

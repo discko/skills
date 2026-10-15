@@ -1,4 +1,4 @@
-# HTML Plan 0.3.0
+# HTML Plan
 
 [中文](README.md) | English · [Back to the skill catalog](../../README.en.md)
 
@@ -25,14 +25,14 @@ Both uses can coexist on one page. Three levels of nesting are not required. Pre
 
 ## Installation
 
-[Download the 0.3.0 ZIP](https://github.com/discko/skills/releases/download/html-plan%2Fv0.3.0/html-plan-0.3.0.zip). The ZIP includes the complete skill, Chrome extension, Python native host, and installation entry point.
+[Download the latest ZIP](https://github.com/discko/skills/releases/download/html-plan%2Flatest/html-plan.zip). The ZIP includes the complete skill, Chrome extension, Python native host, and installation entry point.
 
 ### Ask your assistant to install it
 
 Copy this prompt:
 
 ```text
-Install HTML Plan 0.3.0 from https://github.com/discko/skills/releases/download/html-plan%2Fv0.3.0/html-plan-0.3.0.zip
+Install the latest stable HTML Plan from https://github.com/discko/skills/releases/download/html-plan%2Flatest/html-plan.zip
 Download and extract the ZIP. Read html-plan/skills/html-plan/SKILL.md and install the complete html-plan skill directory into this assistant's skill directory (for Codex, the default is ~/.codex/skills/html-plan).
 Follow the skill instructions to initialize local saving. Check for Python 3.9+ and Chrome; explain any missing dependencies first. Provide the stable Chrome extension directory and guide me through loading the extension and enabling "Allow access to file URLs".
 Use syntax/format checks and local diagnostics only by default. Do not launch a browser, take screenshots, or perform visual checks. Summarize what was installed and any remaining manual steps.
@@ -96,7 +96,7 @@ See [format.md](references/format.md) for input and feedback schemas, and [setup
 
 Run the installer again after installing a new version; reload the updated extension in Chrome. Save or download pending feedback before refreshing open pages. Existing HTML files keep their embedded template; new features apply to newly generated files.
 
-The repository's `package.py` builds `dist/html-plan-0.3.0.zip`; its version tag is `html-plan/v0.3.0`. When maintaining the template, run these checks from the repository root:
+The repository's `package.py` builds a versioned ZIP and copies the same bytes to `dist/html-plan.zip`. The current version is **0.3.1**, tagged `html-plan/v0.3.1`. Keep version tags and assets unchanged; on release, update the `html-plan/latest` tag, its Release's version notes, and the `html-plan.zip` asset to the same version. This fixed entry point is maintained explicitly, not automatically selected per skill by GitHub. When maintaining the template, run these checks from the repository root:
 
 ```sh
 python3 -m unittest discover -s tests -v
@@ -104,3 +104,9 @@ node --test tests/extension.test.cjs tests/plan.test.cjs
 ```
 
 These are maintenance tests, not a requirement for each generated plan. Browser testing is an explicit opt-in workflow, separate from default installation and generation.
+
+## Acknowledgements
+
+This project's interactive plan-review design was inspired by [html-plan by Thariq Shihipar](https://github.com/anthropics/claude-plugins-community/tree/main/html-plan), distributed in Anthropic's community plugin repository. We thank the author for exploring behavior-oriented plans, decisions placed next to the claims they affect, and comments, removal marks, and structured feedback connecting users and assistants.
+
+This project implements its own JSON input and Python generator, page runtime, Chrome extension, and Native Messaging local saving mechanism. It also adds information-checking workflows, editable tables, and feedback prefilling. It is not an official Anthropic plugin and does not imply Anthropic endorsement.

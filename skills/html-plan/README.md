@@ -1,4 +1,4 @@
-# HTML Plan 0.3.0
+# HTML Plan
 
 中文 | [English](README.en.md) · [返回 Skill 目录](../../README.md)
 
@@ -25,14 +25,14 @@
 
 ## 安装
 
-[下载 0.3.0 ZIP](https://github.com/discko/skills/releases/download/html-plan%2Fv0.3.0/html-plan-0.3.0.zip)。ZIP 中包含完整 Skill、Chrome 扩展、Python 保存程序和安装入口。
+[下载最新版 ZIP](https://github.com/discko/skills/releases/download/html-plan%2Flatest/html-plan.zip)。ZIP 中包含完整 Skill、Chrome 扩展、Python 保存程序和安装入口。
 
 ### 让助手安装
 
 复制以下提示词：
 
 ```text
-请安装 HTML Plan 0.3.0：下载并解压 https://github.com/discko/skills/releases/download/html-plan%2Fv0.3.0/html-plan-0.3.0.zip
+请安装 HTML Plan 最新稳定版：下载并解压 https://github.com/discko/skills/releases/download/html-plan%2Flatest/html-plan.zip
 读取压缩包中 html-plan/skills/html-plan/SKILL.md，将完整的 html-plan Skill 目录安装到当前助手的 Skill 目录（Codex 默认是 ~/.codex/skills/html-plan）。
 请按 Skill 内的说明初始化本机保存环境，检查 Python 3.9+ 和 Chrome；如果缺少依赖，先说明。提供 Chrome 扩展的稳定安装目录，指导我加载扩展并开启“允许访问文件网址”。
 默认只做语法、格式和本机诊断，不启动浏览器、不截图或做视觉检查。安装后说明完成了什么、还有哪些需我手动操作。
@@ -96,7 +96,7 @@ py -3 install.py doctor
 
 安装新版本后重新运行安装命令；Chrome 扩展更新后在扩展管理页重新加载。刷新已打开的计划前先保存或下载未保存的反馈。旧 HTML 不自动替换模板，主题等新能力用于新生成的文件。
 
-仓库根的 `package.py` 构建 `dist/html-plan-0.3.0.zip`；对应版本标签是 `html-plan/v0.3.0`。维护模板时可在仓库根运行：
+仓库根的 `package.py` 构建带版本号的 ZIP，并复制为内容相同的 `dist/html-plan.zip`。当前版本为 **0.3.1**，版本标签是 `html-plan/v0.3.1`。发布时保留版本标签和附件，另将 `html-plan/latest` 标签、对应 Release 的版本说明及 `html-plan.zip` 附件更新到同一版本。`latest` 是手动维护的固定入口，不是 GitHub 自动按 Skill 识别的最新版本。维护模板时可在仓库根运行：
 
 ```sh
 python3 -m unittest discover -s tests -v
@@ -104,3 +104,9 @@ node --test tests/extension.test.cjs tests/plan.test.cjs
 ```
 
 这些是维护测试，不要求每次生成计划都运行。浏览器测试需另行明确选择，不属于默认安装或生成流程。
+
+## 来源与致谢
+
+本项目的交互式计划审阅设计受到 [Thariq Shihipar 的 html-plan](https://github.com/anthropics/claude-plugins-community/tree/main/html-plan) 启发，该项目收录于 Anthropic 的社区插件仓库。感谢其在按行为组织计划、将决策放在相关条目旁，以及通过评论、划除和结构化反馈连接用户与助手方面的探索。
+
+本项目另行实现了 JSON 输入与 Python 生成器、页面运行时、Chrome 扩展和 Native Messaging 本地保存机制，并扩展了信息核对、可编辑表格及反馈预填等用法。本项目并非 Anthropic 官方插件，也不表示获得其认可或背书。

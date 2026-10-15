@@ -2,6 +2,7 @@
 """Build a shareable HTML Plan ZIP with one html-plan root directory."""
 from pathlib import Path
 import json
+import shutil
 import zipfile
 
 root = Path(__file__).resolve().parent
@@ -15,3 +16,7 @@ with zipfile.ZipFile(output, "w", zipfile.ZIP_DEFLATED) as archive:
     for file in sorted(files):
         archive.write(file, Path("html-plan") / file.relative_to(root))
 print(output)
+# A fixed asset name supports each skill's separately maintained latest Release.
+latest = output.with_name("html-plan.zip")
+shutil.copyfile(output, latest)
+print(latest)

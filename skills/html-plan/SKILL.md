@@ -2,7 +2,7 @@
 name: html-plan
 description: 生成和修订用于计划审阅或信息收集的单文件 HTML，读取保存或粘贴到聊天的反馈，并初始化或诊断 Chrome 本地保存环境。用户要求 HTML Plan、用 HTML 收集或核对信息、浏览器审阅计划、粘贴 html-plan-review JSON 或初始化 html-plan 时使用。
 metadata:
-  version: "0.3.0"
+  version: "0.3.1"
 ---
 
 # HTML Plan

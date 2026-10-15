@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "HTML Plan — Local Save",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "将本地 HTML Plan 的审阅反馈保存回当前文件。",
   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAo2jEnnDyMyrYvzwpsbjJ/m3zMX4jrnsQsee5XGX3RLR+fA71SVjvOvxgdDpq5RYXDgeDheUfyGVbKjMAQqOTVY20wJ8CS6BXFU8Pb3ziDb5qc3S/kBYSHP56KPcajS0lDB9WZAPd6x7hbHGTWeBG94bvu5Y0NNAPkxgRWIHyj+mHJd7E5r7Q5/LmbAitvoYXuPlBJFEzfoh6UjItlozfFJTzB/cC9efcxQdWHbEF/l1haYihqjpvHOnswc+9gn7GxTAENyHynGSv0SJ4m3lDOauNaIHrLotHeFoPnerY6KtpyF9d6vPzIgv8b3Hk2ZOGJ38gHXVBCGNBlUnAWvYkHQIDAQAB",
   "permissions": ["nativeMessaging"],

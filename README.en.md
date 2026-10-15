@@ -8,7 +8,7 @@ A collection of reusable AI assistant skills. Each skill has its own instruction
 
 | Skill | Category | Purpose | Current version |
 | --- | --- | --- | --- |
-| [HTML Plan](skills/html-plan/README.en.md) | Plan review and information gathering | Turn implementation plans or open questions into interactive HTML and collect choices, comments, and edits | 0.3.0 |
+| [HTML Plan](skills/html-plan/README.en.md) | Plan review and information gathering | Turn implementation plans or open questions into interactive HTML and collect choices, comments, and edits | 0.3.1 |
 
 HTML Plan supports two uses, which can be combined on one page:
 
@@ -17,12 +17,12 @@ HTML Plan supports two uses, which can be combined on one page:
 
 ## Install HTML Plan
 
-[Download HTML Plan 0.3.0 ZIP](https://github.com/discko/skills/releases/download/html-plan%2Fv0.3.0/html-plan-0.3.0.zip) · [English guide](skills/html-plan/README.en.md) · [中文使用说明](skills/html-plan/README.md)
+[Download the latest HTML Plan ZIP](https://github.com/discko/skills/releases/download/html-plan%2Flatest/html-plan.zip) · [English guide](skills/html-plan/README.en.md) · [中文使用说明](skills/html-plan/README.md)
 
 Copy this prompt into an AI assistant that can access local files and run commands:
 
 ```text
-Install HTML Plan 0.3.0 from https://github.com/discko/skills/releases/download/html-plan%2Fv0.3.0/html-plan-0.3.0.zip
+Install the latest stable HTML Plan from https://github.com/discko/skills/releases/download/html-plan%2Flatest/html-plan.zip
 Download and extract the ZIP. Read html-plan/skills/html-plan/SKILL.md and install the complete html-plan skill directory into this assistant's skill directory (for Codex, the default is ~/.codex/skills/html-plan).
 Follow the skill instructions to initialize local saving. Check for Python 3.9+ and Chrome; explain any missing dependencies first. Provide the stable Chrome extension directory and guide me through loading the extension and enabling "Allow access to file URLs".
 Use syntax/format checks and local diagnostics only by default. Do not launch a browser, take screenshots, or perform visual checks. Summarize what was installed and any remaining manual steps.
@@ -46,4 +46,8 @@ tests/            # Maintenance tests for HTML Plan
 
 READMEs are for users; `SKILL.md` is for the assistant. Reading every README is not required during normal skill use.
 
-Skills are versioned independently, using tags such as `<skill>/v<version>` (for example, `html-plan/v0.3.0`). Install using the ZIP asset attached to the corresponding Release.
+Skills are versioned independently, using tags such as `<skill>/v<version>` (for example, `html-plan/v0.3.1`). Version tags and historical assets stay unchanged. Each skill also has a maintainer-updated `<skill>/latest` tag and Release with a fixed asset name (such as `html-plan.zip`) for installation prompts. This is separate from GitHub's repository-wide Latest designation, so multiple skills can maintain independent download links. Use a versioned Release ZIP to pin a version.
+
+## Acknowledgements
+
+HTML Plan's interactive plan-review design was inspired by [html-plan by Thariq Shihipar](https://github.com/anthropics/claude-plugins-community/tree/main/html-plan). We thank the author for exploring plan organization and human–agent feedback. This project implements its own generator, page runtime, and local saving mechanism. See the [HTML Plan acknowledgements](skills/html-plan/README.en.md#acknowledgements).
