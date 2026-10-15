@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.DS_Store
+dist/
+test-results/
+node_modules/
+
+
+# Local review documents may contain project-specific feedback.
+.plan/

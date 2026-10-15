@@ -1,0 +1,176 @@
+{
+  "title": "HTML Plan 0.3.0 · 计划审阅与信息核对",
+  "summary": "示例数据用于体验布局和反馈。先确认少量方案取舍，再在表格中纠正预填信息；选择和备注不会自动触发实施。",
+  "layout": "flat",
+  "claims": [
+    {
+      "id": "delivery",
+      "title": "确认导出方案",
+      "description": "本节演示开发前的计划审阅。建议后台生成文件，用户可继续浏览；失败后可重试。",
+      "decisions": [
+        {
+          "id": "delivery-mode",
+          "label": "生成方式",
+          "type": "radio",
+          "options": [
+            "后台任务",
+            "同步下载",
+            "待确认"
+          ],
+          "default": "后台任务",
+          "hint": "建议后台任务，避免大文件阻塞页面。"
+        },
+        {
+          "id": "notify-ready",
+          "label": "文件生成后通知我",
+          "type": "checkbox",
+          "default": true
+        },
+        {
+          "id": "export-fields",
+          "label": "导出内容",
+          "type": "checkboxes",
+          "options": [
+            "名称",
+            "编号",
+            "更新时间"
+          ],
+          "default": [
+            "名称",
+            "编号"
+          ]
+        },
+        {
+          "id": "retention-days",
+          "label": "文件保留天数",
+          "type": "number",
+          "default": "7"
+        },
+        {
+          "id": "extra-rules",
+          "label": "补充约束",
+          "type": "textarea",
+          "default": ""
+        }
+      ],
+      "children": [
+        {
+          "id": "delivery-details",
+          "title": "实现与验证细节",
+          "layout": "cards",
+          "expanded": false,
+          "description": "这是可选折叠内容；任务状态为排队、生成中、成功或失败。验证失败重试与下载过期提示。",
+          "feedback": false
+        }
+      ]
+    },
+    {
+      "id": "project-mapping",
+      "title": "核对项目归属",
+      "description": "以下为虚构的预填数据。只需纠正未知项；使用搜索定位条目，每行备注可补充依据。",
+      "feedback": false,
+      "table": {
+        "columns": [
+          {
+            "key": "evidence",
+            "label": "已知信息／依据"
+          },
+          {
+            "key": "project",
+            "label": "所属项目"
+          },
+          {
+            "key": "status",
+            "label": "处理方式"
+          },
+          {
+            "key": "tags",
+            "label": "涉及能力"
+          }
+        ],
+        "rows": [
+          {
+            "id": "search-caller",
+            "label": "search-api",
+            "description": "示例调用方",
+            "cells": {
+              "evidence": "配置中出现搜索服务名",
+              "project": {
+                "id": "search-project",
+                "label": "项目",
+                "type": "text",
+                "default": "项目 A"
+              },
+              "status": {
+                "id": "search-status",
+                "label": "处理方式",
+                "type": "radio",
+                "options": [
+                  "纳入",
+                  "忽略",
+                  "待确认"
+                ],
+                "default": "纳入"
+              },
+              "tags": {
+                "id": "search-tags",
+                "label": "能力",
+                "type": "checkboxes",
+                "options": [
+                  "检索",
+                  "导出"
+                ],
+                "default": [
+                  "检索"
+                ]
+              }
+            }
+          },
+          {
+            "id": "export-caller",
+            "label": "export-worker",
+            "description": "归属尚无依据",
+            "cells": {
+              "evidence": "只发现任务名称，需补充归属",
+              "project": {
+                "id": "export-project",
+                "label": "项目",
+                "type": "select",
+                "options": [
+                  "待确认",
+                  "项目 A",
+                  "项目 B",
+                  "其他"
+                ],
+                "default": "待确认"
+              },
+              "status": {
+                "id": "export-status",
+                "label": "处理方式",
+                "type": "radio",
+                "options": [
+                  "纳入",
+                  "忽略",
+                  "待确认"
+                ],
+                "default": "待确认"
+              },
+              "tags": {
+                "id": "export-tags",
+                "label": "能力",
+                "type": "checkboxes",
+                "options": [
+                  "检索",
+                  "导出"
+                ],
+                "default": [
+                  "导出"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

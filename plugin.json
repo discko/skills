@@ -1,0 +1,19 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "html-plan",
+  "version": "0.3.0",
+  "description": "单文件交互计划、审阅反馈与本地保存，支持 macOS 和 Windows。",
+  "author": { "name": "HTML Plan contributors" },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "HTML Plan",
+        "shortDescription": "生成、审阅和保存交互式 HTML 计划",
+        "longDescription": "在项目 .plan 目录生成独立 HTML，浏览器审阅后通过 Chrome 扩展和 Python Native Messaging host 保存反馈。",
+        "developerName": "HTML Plan contributors",
+        "category": "Productivity",
+        "defaultPrompt": "使用 HTML Plan 为当前需求生成可审阅的计划。"
+      }
+    }
+  }
+}

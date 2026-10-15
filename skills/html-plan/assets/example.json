@@ -1,0 +1,28 @@
+{
+  "title": "让每一份计划，都能带着反馈继续",
+  "summary": "HTML Plan 首次连接测试。修改下面的选项或评论，点击保存，重新打开文件确认反馈仍在。完成后回到聊天，继续生成项目自己的计划。",
+  "claims": [
+    {
+      "id": "review-plan",
+      "title": "在浏览器里审阅计划，明确每个关键选择",
+      "description": "计划按行为展开。先看要实现什么，再逐层查看实现方式和实际改动。你可以改变选项、写评论，或划掉不需要的条目。",
+      "decisions": [{"id": "save-mode", "label": "什么时候保存反馈？", "type": "select", "options": ["点击保存时", "先下载副本"], "default": "点击保存时"}],
+      "children": [
+        {
+          "id": "local-save",
+          "title": "点击保存，将反馈写回当前 HTML",
+          "description": "页面通过扩展调用 Python host。host 检查版本，只替换 head 中的反馈 JSON；保存失败会明确提示，并保留当前输入。",
+          "exhibits": [{"id": "save-flow", "type": "flow", "label": "保存流程", "content": "页面 → Chrome 扩展 → Python host\n                         ↓\n                检查版本 → 写入反馈 → 返回结果"}],
+          "children": [{"id": "feedback-shape", "title": "反馈包含选择、评论、划除和编辑", "exhibits": [{"id": "schema-sample", "type": "code", "label": "可编辑的设计草稿", "editable": true, "content": "{\n  \"decisions\": {},\n  \"comments\": {},\n  \"struck\": [],\n  \"edits\": {}\n}"}]}]
+        }
+      ]
+    },
+    {
+      "id": "iterate-plan",
+      "title": "每轮生成新文件，保留之前的意见",
+      "description": "默认生成到项目根目录 .plan/，例如 feature-v1.html、feature-v2.html。指定其他路径时，以你的要求为准。新版预填仍适用的反馈，旧版留作记录。",
+      "decisions": [{"id": "review-focus", "label": "这轮优先关注什么？", "type": "text", "default": "保存流程与失败提示"}],
+      "exhibits": [{"id": "iteration-flow", "type": "flow", "label": "审阅与修订", "content": "Plan v1 → 保存反馈 → 回聊天继续 → Plan v2\n                                  └─ 预填上一轮意见"}]
+    }
+  ]
+}
